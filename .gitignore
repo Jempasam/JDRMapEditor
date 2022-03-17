@@ -3,4 +3,5 @@
 *.cbp
 *.layout
 *.dll
+*.h.gch
 /obj
