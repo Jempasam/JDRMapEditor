@@ -13,6 +13,7 @@ C++ JDRMapEditor with fancy and overanimated interface
 ![Exemple of map](img/carte1.png)
 ![Exemple of map](img/carte2.png)
 ## Controls
+```
 Space - Switch mode
 P - Screenshot
 O - Screenshot menu
@@ -20,7 +21,9 @@ I - Brush menu
 U - Save/Load menu
 A - Switch between Floor/Roof/RoundingSelector
 Tab - Active/Deactive Rounding Mode
+```
 ### In Objects Mode
+```
 S - Resize
 M - Move
 R - Rotate
@@ -28,3 +31,4 @@ N - Create Object
 L - Superposition Level
 C - Clone Selected
 Backspace - Remove Selected
+```
