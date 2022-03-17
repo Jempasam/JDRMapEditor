@@ -18,6 +18,8 @@ P - Screenshot
 O - Screenshot menu
 I - Brush menu
 U - Save/Load menu
+A - Switch between Floor/Roof/RoundingSelector
+Tab - Active/Deactive Rounding Mode
 ### In Objects Mode
 S - Resize
 M - Move
