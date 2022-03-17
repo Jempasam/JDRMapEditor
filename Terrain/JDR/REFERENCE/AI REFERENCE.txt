@@ -1,0 +1,115 @@
++---+  PNJ  +---+
+
+-32:NORMAL:
+ drop
+ entity type when poluraty is stocked
+ When popularity is stocked --ALWAYS 0--
+
+-33:VENDOR: BUY ONLY WITH GOLD
+ drop
+ entity type when poluraty is stocked
+ When popularity is stocked --ALWAYS 0--
+ gold price
+ buyed item type
+ buyed item id
+
+-34:VENDOR+: BUY ITEM WITH ANYTHING
+ drop
+ entity type when poluraty is stocked
+ When popularity is stocked --ALWAYS 0--
+ item to sell
+ item to sell price
+ buyed item type
+ buyed item id
+
++---+  PROJECTILES  +---+
+
+-21:BASE PROJECTILE:
+ speed
+ damage
+
+-28:EXPLOSIVE PROJECTILE:
+ speed
+ damage
+ time before exploding
+ exploding time
+
+-23:SUPER PROJECTILE: A BIG AND FOLLOWING PROJECTILE
+ speed
+ damage
+ time before disapearing
+
+-29:TRANSEXPLO PROJECTILE:
+ speed
+ time before exploding
+ entity summoned when exploding
+ summon offset
+
+-38:TORNADO PROJECTILE
+ start tornado size
+ tornado size augmentation speed
+ move speed
+ damage
+
+-39:CUSTOM TORNADO PROJECTILE
+ start move size
+ move size augmentation
+ damage
+ move1x
+ move1y
+ move2x
+ move2y
+ move3x
+ move3y
+ move4x
+ move4y
+
+-36:RANDOM PROJECTILE
+ speed
+ damage
+
+-48:GENERATOR PROJECTILE
+ speed
+ summoning speed
+ number of entity to summon
+ entity to summon
+
+ 
++---+   ATTACK   +---+
+
+-26:STATIC 4 FRAME: make damage when collide / 4 frames animation
+ time between frame change
+ damage
+ number of complete animation before disapearing
+
+-30:STATIC 4 STATE: animation of 3 frames before damage
+ animation speed/time before damage
+ time of damage
+ damage
+
+-37:GENERATOR
+ summoning speed
+ number of invocation
+ entity to summon
+ summon offset
+
+-44:SIMPLE 4 FRAME:4 frame attack/don't make damage at last frame and first frame
+ speed
+ damage
+
++---+  MONSTER  +---+
+
+-22:STATIC SUMMONER: don't move/ summon an entity many time
+ drop
+ entity to summon
+ time to summon
+
+-43:WAVE MONSTER: follow player->stop->spawn lot of entity->restart
+ drop
+ move speed
+ damage
+ following time
+ stoping time
+ stoping time after invocation
+ entity to summon
+ number of entity to summon
