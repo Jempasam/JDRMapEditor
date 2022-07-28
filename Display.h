@@ -8,6 +8,7 @@
 #include "Tilemap.h"
 
 void displayTexture(sf::RenderTarget &WINDOW,sf::Texture &TEX,int X,int Y,int TX,int TY,int R=255,int G=255,int B=255,int Alpha=255);
+void displayTextureMix(sf::RenderTarget &WINDOW,sf::Texture &TEX,int X,int Y,int TX,int TY,int R=255,int G=255,int B=255,int Alpha=255);
 void displayTexturePart(sf::RenderTarget &WINDOW,sf::Texture &TEX,int X,int Y,int TX,int TY,int texX,int texY,int texX2,int texY2,int R=255,int G=255,int B=255,int Alpha=255);
 void displayTexture2(sf::RenderTarget &WINDOW,sf::Texture &TEX,int X,int Y,int TX,int TY,int rotation=0,int R=255,int G=255,int B=255,int Alpha=255);
 void displayTriangleTexture(sf::RenderTarget &WINDOW,sf::Texture &TEX,int X,int Y,int TX,int TY,int rotation=0,int R=255,int G=255,int B=255,int Alpha=255,int divideSize=2);

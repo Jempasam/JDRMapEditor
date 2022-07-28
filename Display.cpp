@@ -16,7 +16,11 @@ void displayTexture(sf::RenderTarget &WINDOW,sf::Texture &TEX,int X,int Y,int TX
     SPRITE[2].color=sf::Color(R,G,B,Alpha);
     SPRITE[3].color=sf::Color(R,G,B,Alpha);
 
-    WINDOW.draw(SPRITE,&TEX);
+    sf::RenderStates rstate;
+    rstate.texture=&TEX;
+    //rstate.blendMode=sf::BlendAlpha;
+    WINDOW.draw(SPRITE,rstate);
+    //WINDOW.draw(SPRITE,&TEX);
 }
 void displayTexturePart(sf::RenderTarget &WINDOW,sf::Texture &TEX,int X,int Y,int TX,int TY,int texX,int texY,int texX2,int texY2,int R,int G,int B,int Alpha)
 {
@@ -178,10 +182,10 @@ void eraseSquare(sf::RenderTarget &WINDOW,int X,int Y,int TX,int TY)
     SPRITE[1].position=sf::Vector2f(X+TX,Y);
     SPRITE[2].position=sf::Vector2f(X+TX,Y+TY);
     SPRITE[3].position=sf::Vector2f(X,Y+TY);
-    SPRITE[0].color=sf::Color(255,255,255,0);
-    SPRITE[1].color=sf::Color(255,255,255,0);
-    SPRITE[2].color=sf::Color(255,255,255,0);
-    SPRITE[3].color=sf::Color(255,255,255,0);
+    SPRITE[0].color=sf::Color(0,0,0,0);
+    SPRITE[1].color=sf::Color(0,0,0,0);
+    SPRITE[2].color=sf::Color(0,0,0,0);
+    SPRITE[3].color=sf::Color(0,0,0,0);
     WINDOW.draw(SPRITE,sf::BlendNone);
 }
 void eraseCircle(sf::RenderTarget &WINDOW,int X,int Y,int RADIUS)

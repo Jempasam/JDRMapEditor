@@ -208,6 +208,7 @@ sf::Texture combineTerrainShot(TerrainShot &terrainshot)
 {
     sf::RenderTexture image;
     image.create(1280,1280);
+    image.clear(sf::Color::Black);
 
     displayTexture(image,Textures::Background,0,0,1280,1280);
 
@@ -2210,6 +2211,7 @@ void TerrainShotEditor(sf::RenderWindow &WINDOW)
         WINDOW.display();
     }
 }
+
 void TilesEditor(sf::RenderWindow &WINDOW)
 {
     int moveProcess=0;
@@ -2272,34 +2274,34 @@ void TilesEditor(sf::RenderWindow &WINDOW)
                 ButtonPressed=0;
             }
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)&&!ButtonPressed)
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)&&!ButtonPressed&&WINDOW.hasFocus())
         {
             if(EditType==0)EditType=1;
             else if(EditType==1)EditType=2;
             else if(EditType==2)EditType=0;
             ButtonPressed=1;
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)&&!ButtonPressed)
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)&&!ButtonPressed&&WINDOW.hasFocus())
         {
             if(TypeSelected==0)TypeSelected=1;
             else if(TypeSelected==1)TypeSelected=2;
             else if(TypeSelected==2)TypeSelected=0;
             ButtonPressed=1;
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::P)&&!ButtonPressed)
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::P)&&!ButtonPressed&&WINDOW.hasFocus())
             saveTerrainShot(WINDOW);
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::O)&&!ButtonPressed)
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::O)&&!ButtonPressed&&WINDOW.hasFocus())
             TerrainShotEditor(WINDOW);
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::I)&&!ButtonPressed)
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::I)&&!ButtonPressed&&WINDOW.hasFocus())
             brushEditor(WINDOW);
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::U)&&!ButtonPressed)
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::U)&&!ButtonPressed&&WINDOW.hasFocus())
         {
             saveMenu(WINDOW);
             createWorldTexture(doConnect);
         }
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::LControl)
-           &&sf::Keyboard::isKeyPressed(sf::Keyboard::S))saveJDRTerrainImage();
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::C)&&ButtonPressed==0)
+           &&sf::Keyboard::isKeyPressed(sf::Keyboard::S)&&WINDOW.hasFocus())saveJDRTerrainImage();
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::C)&&ButtonPressed==0&&WINDOW.hasFocus())
         {
             int objectNumber=objects.size();
             for(int i=0;i<objectNumber;i++)
@@ -2312,7 +2314,7 @@ void TilesEditor(sf::RenderWindow &WINDOW)
             }
             ButtonPressed=1;
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::N)&&ButtonPressed==0)
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::N)&&ButtonPressed==0&&WINDOW.hasFocus())
         {
             deselectAll(objects);
             Object newObject;
@@ -2325,14 +2327,14 @@ void TilesEditor(sf::RenderWindow &WINDOW)
             objects.push_back(newObject);
             ButtonPressed=1;
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Tab)&&ButtonPressed==0)
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Tab)&&ButtonPressed==0&&WINDOW.hasFocus())
         {
             if(doConnect)doConnect=false;
             else doConnect=true;
             createWorldTexture(doConnect);
             ButtonPressed=1;
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace)&&ButtonPressed==0)
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace)&&ButtonPressed==0&&WINDOW.hasFocus())
         {
             int objectNumber=objects.size();
             for(int i=0;i<objectNumber;i++)
@@ -2344,27 +2346,27 @@ void TilesEditor(sf::RenderWindow &WINDOW)
             deselectAll(objects);
             ButtonPressed=1;
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)&&ButtonPressed==0)
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)&&ButtonPressed==0&&WINDOW.hasFocus())
         {
             editorMode=2;
             ButtonPressed=1;
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::L)&&ButtonPressed==0)
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::L)&&ButtonPressed==0&&WINDOW.hasFocus())
         {
             editorMode=5;
             ButtonPressed=1;
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)&&ButtonPressed==0)
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)&&ButtonPressed==0&&WINDOW.hasFocus())
         {
             editorMode=3;
             ButtonPressed=1;
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::M)&&ButtonPressed==0)
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::M)&&ButtonPressed==0&&WINDOW.hasFocus())
         {
             editorMode=0;
             ButtonPressed=1;
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad0)&&ButtonPressed==0)
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Numpad0)&&ButtonPressed==0&&WINDOW.hasFocus())
         {
             std::string NAME;
             std::getline(std::cin,NAME);
@@ -2378,7 +2380,7 @@ void TilesEditor(sf::RenderWindow &WINDOW)
         int mouseX=sf::Mouse::getPosition(WINDOW).x/windowSizeChange[0];
         int mouseY=sf::Mouse::getPosition(WINDOW).y/windowSizeChange[1];
 
-        if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Left)&&WINDOW.hasFocus())
         {
             if(TypeSelected==0)
             {
@@ -2487,7 +2489,7 @@ void TilesEditor(sf::RenderWindow &WINDOW)
         moveOffset[0]=sf::Mouse::getPosition(WINDOW).x;
         moveOffset[1]=sf::Mouse::getPosition(WINDOW).y;
 
-        if(sf::Mouse::isButtonPressed(sf::Mouse::Right))
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Right)&&WINDOW.hasFocus())
         {
             if(TypeSelected==0)
             {
@@ -2519,7 +2521,7 @@ void TilesEditor(sf::RenderWindow &WINDOW)
                 }
             }
         }
-        if(sf::Mouse::isButtonPressed(sf::Mouse::Middle))
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Middle)&&WINDOW.hasFocus())
         {
             if(TypeSelected==0)
             {
